@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.skyoo.keepthetime_20220315_exam">
 
-    
+
 
     <application
         android:allowBackup="true"
