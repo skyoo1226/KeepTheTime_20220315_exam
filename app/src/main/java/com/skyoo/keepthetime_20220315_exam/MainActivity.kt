@@ -45,18 +45,13 @@ class MainActivity : AppCompatActivity() {
                         val br = response.body()!!
                         Toast.makeText(this@MainActivity, br.message, Toast.LENGTH_SHORT).show()
                     }
-
                 }
-
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
             })
         }
-
     }
     fun setValues() {
-
     }
 }
