@@ -3,6 +3,7 @@ package com.skyoo.keepthetime_20220315_exam
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.skyoo.keepthetime_20220315_exam.api.APIList
 import com.skyoo.keepthetime_20220315_exam.api.ServerAPI
@@ -34,6 +35,11 @@ class MainActivity : AppCompatActivity() {
 
             myApiList.postRequestLogin(inputID, inputPw).enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                    if (response.isSuccessful) {
+                        val br = response.body()!!
+                        Toast.makeText(this@MainActivity, br.message, Toast.LENGTH_SHORT).show()
+                    }
 
                 }
 
