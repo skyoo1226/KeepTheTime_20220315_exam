@@ -13,8 +13,8 @@ class ServerAPI {
             if (retrofit == null) {
                 retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory()
-                    .build( GsonConverterFactory.create() )
+                    .addConverterFactory( GsonConverterFactory.create() )
+                    .build()
             }
             return retrofit!!
         }
