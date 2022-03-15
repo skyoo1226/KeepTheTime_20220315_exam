@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnSignUp.setOnClickListener {
             val inputID = binding.edtEmail.text.toString()
             val inputPw = binding.edtPassword.text.toString()
+
             val myRetrofit = ServerAPI.getRetrofit()
             val myApiList = myRetrofit.create(APIList::class.java)
 
