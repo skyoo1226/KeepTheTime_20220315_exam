@@ -2,8 +2,13 @@ package com.skyoo.keepthetime_20220315_exam
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.skyoo.keepthetime_20220315_exam.databinding.ActivitySignUpBinding
+import com.skyoo.keepthetime_20220315_exam.datas.BasicResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 // BaseActivity 만든 후 앞으로는 서버 AppCompatActivity()에서 직접 상속 받지 않고 이제는 BaseActivity에서 받을것임.
@@ -27,7 +32,22 @@ class SignUpActivity : BaseActivity() {
             val inputPw = binding.edtPassword.text.toString()
             val inputNickname = binding.edtNickname.text.toString()
 
+            apiList.putRequestSignUp(inputEmail, inputPw, inputNickname).enqueue(object :Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(mContext, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
+                    }
 
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+            })
         }
 
     }

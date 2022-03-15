@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
     fun setupEvents() {
 
         binding.btnSignUp.setOnClickListener {
+            val myIntent = Intent(this, SignUpActivity::class.java)
+            startActivity(myIntent)
+        }
+
+        binding.btnLogin.setOnClickListener {
             val inputID = binding.edtEmail.text.toString()
             val inputPw = binding.edtPassword.text.toString()
 
