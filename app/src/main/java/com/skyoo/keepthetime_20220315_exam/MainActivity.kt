@@ -1,5 +1,6 @@
 package com.skyoo.keepthetime_20220315_exam
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -16,6 +17,11 @@ class MainActivity : AppCompatActivity() {
         setValues()
     }
     fun setupEvents() {
+
+        binding.btnSignUp.setOnClickListener {
+            val inputID = binding.edtEmail.text.toString()
+            val inputPw = binding.edtPassword.text.toString()
+        }
 
     }
     fun setValues() {
