@@ -25,7 +25,12 @@ class LoginActivity : BaseActivity() {
         setupEvents()
         setValues()
     }
-    override fun setupEvents() {
+
+    override fun setupEvens() {
+
+    }
+
+    fun setupEvents() {
 
         binding.autoLoginCheckBox.setOnCheckedChangeListener { compoundButton, isChecked ->
             ContextUtil.setAutoLogin(mContext, isChecked)

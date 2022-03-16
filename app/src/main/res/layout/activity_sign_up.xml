@@ -75,14 +75,14 @@
                 android:text="닉네임 확인" />
 
         </LinearLayout>
-
+<!--
         <EditText
             android:id="@+id/edtNickname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="자유 입력"
             android:singleLine="true" />
-
+-->
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
