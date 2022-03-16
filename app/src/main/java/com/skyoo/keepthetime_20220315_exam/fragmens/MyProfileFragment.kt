@@ -1,6 +1,7 @@
 package com.skyoo.keepthetime_20220315_exam.fragmens
 
-import android.app.AlertDialog
+
+import androidx.appcompat.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -42,8 +43,8 @@ class MyProfileFragment : BaseFragment() {
         binding.btnLogout.setOnClickListener {
 //      AlertDialog 자동완성 시 필히 AlertDialog(androidx.appcompat.app) 선택
 
-//      강사임 화면은 val alert = AlertDialog.Builder(mContext) 나와 왜 차이날까?
-            val alert = androidx.appcompat.app.AlertDialog.Builder(mContext)
+//      강사임 화면은 val alert = AlertDialog.Builder(mContext) 나와 왜 차이날까? 맨위 import 때문에 발생
+            val alert = AlertDialog.Builder(mContext)
                 .setTitle("로그아웃")
                 .setMessage("정말 로그아웃 하시겠습니까?")
                 .setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
