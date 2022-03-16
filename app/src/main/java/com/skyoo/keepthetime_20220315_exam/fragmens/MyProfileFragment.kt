@@ -2,6 +2,7 @@ package com.skyoo.keepthetime_20220315_exam.fragmens
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.skyoo.keepthetime_20220315_exam.R
+import com.skyoo.keepthetime_20220315_exam.SplashActivity
 import com.skyoo.keepthetime_20220315_exam.databinding.FragmentMyprofileBinding
 import com.skyoo.keepthetime_20220315_exam.datas.BasicResponse
 import com.skyoo.keepthetime_20220315_exam.utils.ContextUtil
@@ -45,6 +47,14 @@ class MyProfileFragment : BaseFragment() {
                 .setTitle("로그아웃")
                 .setMessage("정말 로그아웃 하시겠습니까?")
                 .setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
+
+//      실제 로그아웃 처리 = 저장된 토큰값을 삭제 : ""로 표현. -> 화면 종료 후 로딩화면으로 이동.
+                    ContextUtil.setToken(mContext, "")
+
+                    val myIntent = Intent(mContext, SplashActivity::class.java)
+                    startActivity(myIntent)
+
+                    requireActivity().finish()
 
                 })
                 .setNegativeButton("취소", null)
