@@ -3,6 +3,7 @@ package com.skyoo.keepthetime_20220315_exam
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.skyoo.keepthetime_20220315_exam.adapters.MainViewPagerAdapter
 import com.skyoo.keepthetime_20220315_exam.databinding.ActivityMainBinding
 import com.skyoo.keepthetime_20220315_exam.datas.BasicResponse
 import com.skyoo.keepthetime_20220315_exam.utils.ContextUtil
@@ -13,6 +14,8 @@ import retrofit2.Response
 class MainActivity : BaseActivity() {
 
     lateinit var binding: ActivityMainBinding
+
+    lateinit var mAdapter : MainViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +43,9 @@ class MainActivity : BaseActivity() {
             }
         })
  **/
+        mAdapter = MainViewPagerAdapter(supportFragmentManager)
+        binding.mainViewPager.adapter = mAdapter
+
     }
 
 }
