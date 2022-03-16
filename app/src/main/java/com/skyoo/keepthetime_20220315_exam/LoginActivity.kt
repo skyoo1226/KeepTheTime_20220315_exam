@@ -58,6 +58,8 @@ class LoginActivity : BaseActivity() {
 //  또한 this@LoginActivity 도 mContext로 대체 해야 함.
 //  필요없어져서 주석처리 함. Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
                         Log.d("토큰", br.data.token)
+//      받아온 토큰값을 기기에 저장 => 나중에 많은 화면에서 활용 - 우선 기기에 저장
+                        ContextUtil.setToken(mContext, br.data.token)
 
                         Toast.makeText(
                             mContext,
