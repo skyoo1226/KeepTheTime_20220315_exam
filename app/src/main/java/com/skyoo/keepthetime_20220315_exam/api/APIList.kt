@@ -33,4 +33,10 @@ interface APIList {
         @Query("value") value: String,
     ) : Call<BasicResponse>
 
+//    내 정보 조회
+    @GET("/user")
+    fun getRequestMyInfo(
+        @Header("X-Http-Token") token: String,
+    ) : Call<BasicResponse>
+
 }
