@@ -46,6 +46,8 @@ class MyProfileFragment : BaseFragment() {
                     val  br = response.body()!!
 //          내 정보를 받아온 사용자의 프로필 사진을 Glide를 활용 -> 이미지뷰에 반영 하여 함.
                     Glide.with(mContext).load(br.data.user.profile_img).into(binding.imgProfile)
+//          fragment_myprofile의 닉네임에 id 부여 후 닉네일도 서버에서 가져오기.
+                    binding.txtNickname.text = br.data.user.nick_name
                 }
 
             }
