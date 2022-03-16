@@ -47,6 +47,7 @@ class LoginActivity : BaseActivity() {
 //  또한 this@LoginActivity 도 mContext로 대체 해야 함.
 //  필요없어져서 주석처리 함. Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
                         Log.d("토큰", br.data.token)
+
                         Toast.makeText(
                             mContext,
                             "${br.data.user.nick_name}님, 환영합니다!",
