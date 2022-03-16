@@ -19,8 +19,8 @@ abstract class BaseFragment : Fragment() {
 
         val retrofit = ServerAPI.getRetrofit()
         apiList = retrofit.create(APIList::class.java)
-    }
 
+    }
     abstract fun setupEvents()
     abstract fun setValues()
 }
