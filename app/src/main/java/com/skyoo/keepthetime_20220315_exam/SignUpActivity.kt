@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.skyoo.keepthetime_20220315_exam.databinding.ActivitySignUpBinding
 import com.skyoo.keepthetime_20220315_exam.datas.BasicResponse
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,14 +29,34 @@ class SignUpActivity : BaseActivity() {
 
     override fun setupEvens() {
 
+        binding.btnEmailCheck.setOnClickListener {
+            val inputEmail = binding.edtEmail.text.toString()
 
+            apiList.getRequestDuplicatedCheck("EMAIL", inputEmail).enqueue(object : Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+                    if (response.isSuccessful) {      //에메일 중복이 아닐때
+                        val br = response.body()!!    //response.body()!! 계속 사용하니까 br변수화 시킴
+                        Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
+                    }
+                    else {                   //이메일이 중복 됐을때
+                        val jsonObj = JSONObject( response.errorBody()!!.string() )
+                    }
+                }
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+            })
+        }
 
         binding.btnSignUp.setOnClickListener {
             val inputEmail = binding.edtEmail.text.toString()
             val inputPw = binding.edtPassword.text.toString()
             val inputNickname = binding.edtNickname.text.toString()
 
-            apiList.putRequestSignUp(inputEmail, inputPw, inputNickname).enqueue(object :Callback<BasicResponse> {
+            apiList.putRequestSignUp(inputEmail, inputPw, inputNickname).enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
