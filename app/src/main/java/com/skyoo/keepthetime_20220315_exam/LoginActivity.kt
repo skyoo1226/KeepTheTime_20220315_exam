@@ -29,6 +29,7 @@ class LoginActivity : BaseActivity() {
 
         binding.autoLoginCheckBox.setOnCheckedChangeListener { compoundButton, isChecked ->
             ContextUtil.setAutoLogin(mContext, isChecked)
+
         }
 
         binding.btnSignUp.setOnClickListener {
