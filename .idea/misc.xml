@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_20220315_exam/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_20220315_exam/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_20220315_exam/app/src/main/res/layout/activity_sign_up.xml" value="0.18" />
+        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_20220315_exam/app/src/main/res/layout/fragment_appointment_list.xml" value="0.1259259259259259" />
+        <entry key="..\:/Users/my/AndroidStudioProjects/KeepTheTime_20220315_exam/app/src/main/res/layout/fragment_myprofile.xml" value="0.1259259259259259" />
       </map>
     </option>
   </component>

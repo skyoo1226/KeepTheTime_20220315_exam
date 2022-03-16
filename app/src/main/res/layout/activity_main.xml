@@ -9,12 +9,22 @@
         android:orientation="vertical"
         android:gravity="center"
         tools:context=".MainActivity">
-
+<!-- 3월13일 강의 중 임시연습용 문제-토큰값 저장,불러오기용으로만 사용
         <TextView
             android:id="@+id/txtMyNickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="나의 닉네임" />
+-->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/mainTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/mainViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </layout>
