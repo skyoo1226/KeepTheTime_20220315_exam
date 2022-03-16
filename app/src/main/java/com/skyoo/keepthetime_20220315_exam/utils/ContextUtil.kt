@@ -15,5 +15,11 @@ class ContextUtil {
             pref.edit().putBoolean(AUTO_LOGIN, isAutoLogin).apply()
 
         }
+//        조회 기능: getter
+        fun getAutoLogin( context: Context) : Boolean {
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+
+            return  pref.getBoolean(AUTO_LOGIN, false)
+        }
     }
 }

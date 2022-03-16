@@ -73,5 +73,6 @@ class LoginActivity : BaseActivity() {
         }
     }
     override fun setValues() {
+        binding.autoLoginCheckBox.isChecked = ContextUtil.getAutoLogin(mContext)
     }
 }
