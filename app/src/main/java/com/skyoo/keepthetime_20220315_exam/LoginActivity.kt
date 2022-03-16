@@ -7,20 +7,19 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.skyoo.keepthetime_20220315_exam.api.APIList
 import com.skyoo.keepthetime_20220315_exam.api.ServerAPI
-import com.skyoo.keepthetime_20220315_exam.databinding.ActivityMainBinding
+import com.skyoo.keepthetime_20220315_exam.databinding.ActivityLoginBinding
 import com.skyoo.keepthetime_20220315_exam.datas.BasicResponse
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
-    lateinit var binding : ActivityMainBinding
+    lateinit var binding : ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         setupEvents()
         setValues()
     }
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
                     if (response.isSuccessful) {
                         val br = response.body()!!
-                        Toast.makeText(this@MainActivity, br.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, br.message, Toast.LENGTH_SHORT).show()
                     }
                 }
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {

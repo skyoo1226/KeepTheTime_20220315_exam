@@ -37,11 +37,11 @@ class SignUpActivity : BaseActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-                    if (response.isSuccessful) {      //에메일 중복이 아닐때
+                    if (response.isSuccessful) {      //에메일 중복이 아닐때 -성공
                         val br = response.body()!!    //response.body()!! 계속 사용하니까 br변수화 시킴
                         Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
                     }
-                    else {                   //이메일이 중복 됐을때
+                    else {                   //이메일이 중복 됐을때 -실패
                         val jsonObj = JSONObject( response.errorBody()!!.string() )
                     }
                 }
