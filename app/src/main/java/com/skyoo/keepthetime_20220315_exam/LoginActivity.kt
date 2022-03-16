@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     lateinit var binding : ActivityLoginBinding
 
@@ -23,10 +23,11 @@ class LoginActivity : AppCompatActivity() {
         setupEvents()
         setValues()
     }
-    fun setupEvents() {
+    override fun setupEvents() {
 
         binding.btnSignUp.setOnClickListener {
-            val myIntent = Intent(this, SignUpActivity::class.java)
+//  => BaseActivity를 상속 받기 때문에 this 대신에 mContext로 써야 됨.
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
             startActivity(myIntent)
         }
 
@@ -34,15 +35,16 @@ class LoginActivity : AppCompatActivity() {
             val inputID = binding.edtEmail.text.toString()
             val inputPw = binding.edtPassword.text.toString()
 
-            val myRetrofit = ServerAPI.getRetrofit()
-            val myApiList = myRetrofit.create(APIList::class.java)
-
-            myApiList.postRequestLogin(inputID, inputPw).enqueue(object : Callback<BasicResponse> {
+//  val myRetrofit = ServerAPI.getRetrofit()  => BaseActivity를 상속 받기 때문에 삭제
+//  val myApiList = myRetrofit.create(APIList::class.java) => BaseActivity를 상속 받기 때문에 삭제
+// 그리고 myApiList 는 그냥 apiList 변수로 쓰면 됨.
+            apiList.postRequestLogin(inputID, inputPw).enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                     if (response.isSuccessful) {
                         val br = response.body()!!
-                        Toast.makeText(this@LoginActivity, br.message, Toast.LENGTH_SHORT).show()
+//  또한 this@LoginActivity 도 mContext로 대체 해야 함.
+                        Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
                     }
                 }
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
@@ -51,6 +53,6 @@ class LoginActivity : AppCompatActivity() {
             })
         }
     }
-    fun setValues() {
+    override fun setValues() {
     }
 }
