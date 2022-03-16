@@ -10,6 +10,7 @@ import com.skyoo.keepthetime_20220315_exam.api.APIList
 import com.skyoo.keepthetime_20220315_exam.api.ServerAPI
 import com.skyoo.keepthetime_20220315_exam.databinding.ActivityLoginBinding
 import com.skyoo.keepthetime_20220315_exam.datas.BasicResponse
+import com.skyoo.keepthetime_20220315_exam.utils.ContextUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +26,10 @@ class LoginActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+
+        binding.autoLoginCheckBox.setOnCheckedChangeListener { compoundButton, isChecked ->
+            ContextUtil.setAutoLogin(mContext, isChecked)
+        }
 
         binding.btnSignUp.setOnClickListener {
 //  => BaseActivity를 상속 받기 때문에 this 대신에 mContext로 써야 됨.
