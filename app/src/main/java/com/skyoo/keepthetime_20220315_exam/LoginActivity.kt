@@ -3,6 +3,7 @@ package com.skyoo.keepthetime_20220315_exam
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.skyoo.keepthetime_20220315_exam.api.APIList
@@ -44,7 +45,18 @@ class LoginActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         val br = response.body()!!
 //  또한 this@LoginActivity 도 mContext로 대체 해야 함.
-                        Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
+//  필요없어져서 주석처리 함. Toast.makeText(mContext, br.message, Toast.LENGTH_SHORT).show()
+                        Log.d("토큰", br.data.token)
+                        Toast.makeText(
+                            mContext,
+                            "${br.data.user.nick_name}님, 환영합니다!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+//                        로그인화면 종료 후 메인화면(새로 만들어야 함)으로 이동.
+                        val myIntent = Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
+
+                        finish()
                     }
                 }
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
