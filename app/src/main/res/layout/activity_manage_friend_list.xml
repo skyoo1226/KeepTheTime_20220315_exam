@@ -8,12 +8,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".ManageFriendListActivity">
-
+<!--
         <ListView
             android:id="@+id/myFriendListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+-->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/friendTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/friendViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </layout>

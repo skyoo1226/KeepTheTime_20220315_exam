@@ -15,11 +15,11 @@ import java.util.ArrayList
 class ManageFriendListActivity : BaseActivity() {
 
     lateinit var binding: ActivityManageFriendListBinding
-
+/**
+// 내 친구 목록
     val mMyFriendList = ArrayList<UserData>()
-
     lateinit var mAdapter: MyFriendAdapter
-
+**/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_manage_friend_list)
@@ -32,13 +32,16 @@ class ManageFriendListActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+/**
 //  내 친구목록에 서버가 실제 내려주는 친구목록을 채우자(API통신과 결합)
         getMyFriendListFromServer()
 
         mAdapter = MyFriendAdapter(mContext, R.layout.friend_list_item, mMyFriendList)
         binding.myFriendListView.adapter = mAdapter
-
+**/
     }
+/**
     fun getMyFriendListFromServer() {
         apiList.getRequestFriendList(
             type = "my"
@@ -62,7 +65,7 @@ class ManageFriendListActivity : BaseActivity() {
         })
 
     }
-
+**/
 }
 //   서버가 실제로 내려주는 친구목록을 API 통신을 이용 채운다.
 //    fun getMyFriendListFromServer() {
