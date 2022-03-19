@@ -25,11 +25,11 @@ class SplashActivity : BaseActivity() {
 
     override fun setValues() {
 
-        var isMyINfoOk = false
+        var isMyInfoOk = false
         apiList.getRequestMyInfo(ContextUtil.getToken(mContext)).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
-                    isMyINfoOk = true
+                    isMyInfoOk = true
                 }
             }
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
@@ -42,7 +42,7 @@ class SplashActivity : BaseActivity() {
             val isAutoLogin = ContextUtil.getAutoLogin(mContext)
 //            val isMyINfoOk = true  => 이것보다 더 이전에 맞는지 조회 : var로 만듬.
 
-            if (isAutoLogin && isMyINfoOk) {
+            if (isAutoLogin && isMyInfoOk) {
                 val myIntent = Intent(mContext, MainActivity::class.java)
                 startActivity(myIntent)
             }

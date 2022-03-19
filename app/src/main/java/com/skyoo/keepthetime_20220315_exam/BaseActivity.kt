@@ -20,7 +20,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
         mContext = this
 
-        val retrofit = ServerAPI.getRetrofit()
+        val retrofit = ServerAPI.getRetrofit(mContext)
         apiList = retrofit.create(APIList::class.java)
     }
  //    함수 setupEvents / setValues 모든 화면이 (각각 내용이 다르게) 구현.

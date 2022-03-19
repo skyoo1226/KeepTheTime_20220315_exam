@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
+import com.skyoo.keepthetime_20220315_exam.ManageFriendListActivity
 import com.skyoo.keepthetime_20220315_exam.R
 import com.skyoo.keepthetime_20220315_exam.SplashActivity
 import com.skyoo.keepthetime_20220315_exam.databinding.FragmentMyprofileBinding
@@ -40,9 +41,14 @@ class MyProfileFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
+
+        binding.btnMyFriendList.setOnClickListener {
+            val myIntent = Intent(mContext, ManageFriendListActivity::class.java)
+            startActivity(myIntent)
+        }
+
         binding.btnLogout.setOnClickListener {
 //      AlertDialog 자동완성 시 필히 AlertDialog(androidx.appcompat.app) 선택
-
 //      강사임 화면은 val alert = AlertDialog.Builder(mContext) 나와 왜 차이날까? 맨위 import 때문에 발생
             val alert = AlertDialog.Builder(mContext)
                 .setTitle("로그아웃")

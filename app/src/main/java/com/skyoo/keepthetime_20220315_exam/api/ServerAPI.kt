@@ -16,7 +16,9 @@ class ServerAPI {
 
         fun getRetrofit( context: Context ) : Retrofit {
             if (retrofit == null) {
-
+//  retrofit 객체 생성 시, 추가 세팅을 해서 생성. 모든 API호출이 있을때, 자동으로 토큰을 첨부하도록 함.
+//  retrofit 변수를 통해서 API통신을 시작하기 직전에, Request 정보를 먼저 가로채어,
+//  가로챈 Request 정보에서, 무조건 헤더에 토큰을 첨부해두고 나서, 그 뒤로 나머지 작업을 이어가도록.
                 val interceptor = Interceptor {
                     with(it) {
                         val newRequest = request().newBuilder()
@@ -26,15 +28,13 @@ class ServerAPI {
                     }
                 }
 
-
                 val myClient = OkHttpClient.Builder()
                     .addInterceptor(interceptor)
                     .build()
 
-
                 retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory( GsonConverterFactory.create() )
                     .client(myClient)
                     .build()
             }
