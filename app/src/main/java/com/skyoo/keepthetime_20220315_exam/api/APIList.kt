@@ -42,8 +42,8 @@ interface APIList {
 //    자동으로 토큰을 불러모는 세팅.(API 호출
     @GET("/uer/friend")
     fun getRequestFriendList(
-        @Header("X-Http-Token") token: String,
+//        @Header("X-Http-Token") token: String,
         @Query("type") type: String,
-    )
+    ) : Call<BasicResponse>
 
 }

@@ -28,4 +28,6 @@ class ManageFriendListActivity : BaseActivity() {
 //   서버가 실제로 내려주는 친구목록을 API 통신을 이용 채운다.
 
     }
+
+
 }
