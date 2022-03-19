@@ -3,6 +3,7 @@ package com.skyoo.keepthetime_20220315_exam
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.skyoo.keepthetime_20220315_exam.adapters.FriendViewPagerAdapter
 import com.skyoo.keepthetime_20220315_exam.adapters.MyFriendAdapter
 import com.skyoo.keepthetime_20220315_exam.databinding.ActivityManageFriendListBinding
 import com.skyoo.keepthetime_20220315_exam.datas.BasicResponse
@@ -15,6 +16,9 @@ import java.util.ArrayList
 class ManageFriendListActivity : BaseActivity() {
 
     lateinit var binding: ActivityManageFriendListBinding
+
+    lateinit var friendViewPagerAdapter: FriendViewPagerAdapter
+
 /**
 // 내 친구 목록
     val mMyFriendList = ArrayList<UserData>()
@@ -32,6 +36,12 @@ class ManageFriendListActivity : BaseActivity() {
     }
 
     override fun setValues() {
+// 뷰페이저 세팅
+        friendViewPagerAdapter = FriendViewPagerAdapter(supportFragmentManager)
+        binding.friendViewPager.adapter = friendViewPagerAdapter
+//        탭레이아웃 세팅
+        binding.friendTabLayout.setupWithViewPager(binding.friendViewPager)
+
 
 /**
 //  내 친구목록에 서버가 실제 내려주는 친구목록을 채우자(API통신과 결합)
